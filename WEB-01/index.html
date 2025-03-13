@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxim Maděra</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>WA - První web</h1>
+        </header>
+        <nav>
+            <!--Navigace pomoci odrazek-->
+            <ul>
+                <li><a href="index.html">Domů</a></li>
+                <li><a href="gallery.html">Galerie</a></li>
+                <li><a href="01-Bootstrap-web/index.html">Bootstrap web</a></li>
+                <li><a href="#">O nás</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="content-wrapper">
+                <section class="grid-container">
+                    <article class="card">
+                        <h2>První článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#">TEST-ODKAZ</a> Fugiat ipsa aut velit cupiditate excepturi veniam libero, minus eum reprehenderit delectus corporis unde placeat rem quo ullam temporibus aperiam quia numquam?</p>
+                    </article>
+                    <article class="card">
+                        <h2>Druhý článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nisi modi itaque, deserunt debitis quis blanditiis neque officiis vero dignissimos facere, molestiae rerum at alias beatae non veritatis quos reiciendis?</p>
+                    </article>
+                    <article class="card">
+                        <h2>Třetí článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam iusto nam mollitia ipsam quae, velit facere a vel, autem eveniet hic aspernatur sed accusantium unde, corrupti reprehenderit voluptatem perspiciatis natus.</p>
+                    </article>
+                    <article class="card">
+                        <h2>Čtvrtý článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam iusto nam mollitia ipsam quae, velit facere a vel, autem eveniet hic aspernatur sed accusantium unde, corrupti reprehenderit voluptatem perspiciatis natus.</p>
+                    </article>
+                    <article class="card">
+                        <h2>Pátý článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#">TEST-ODKAZ</a> Fugiat ipsa aut velit cupiditate excepturi veniam libero, minus eum reprehenderit delectus corporis unde placeat rem quo ullam temporibus aperiam quia numquam?</p>
+                    </article>
+                    <article class="card">
+                        <h2>Šestý článek</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#">TEST-ODKAZ</a> Fugiat ipsa aut velit cupiditate excepturi veniam libero, minus eum reprehenderit delectus corporis unde placeat rem quo ullam temporibus aperiam quia numquam?</p>
+                    </article>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 Maxim Maděra</p>
+            <input type="color" id="colorPicker" value="#00bfff">
+        </footer>
+    </div>
+    <h1>Mění se i barva nadpisu</h1>
+    <p>Mění se i barva odstavce</p>
+
+    <script>
+        const colorPicker = document.getElementById('colorPicker');
+        const body = document.body;
+        const textElements = document.querySelectorAll('h1, p');
+
+
+        colorPicker.addEventListener('input', () => {
+            const color = colorPicker.value;
+            body.style.background = color;
+           
+            // Převod hex na RGB
+            const r = parseInt(color.substr(1, 2), 16);
+            const g = parseInt(color.substr(3, 2), 16);
+            const b = parseInt(color.substr(5, 2), 16);
+           
+            // Výpočet světlosti (luminance) podle vnímání oka
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+           
+            // Pokud je světlost vysoká, nastavíme černý text, jinak bílý
+            const textColor = luminance > 0.5 ? 'black' : 'white';
+            textElements.forEach(el => el.style.color = textColor);
+        });
+    </script>
+
+</body>
+</html> 

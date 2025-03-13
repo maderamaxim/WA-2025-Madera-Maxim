@@ -1,0 +1,72 @@
+/*
+Syntaxe CSS
+
+selector {
+    vlastnost1: hodnota;
+    vlastnost2: hodnota;
+    vlastnost3: hodnota;
+    vlastnost4: hodnota;
+    ...
+    vlastnost-N: hodnota;
+}
+*/
+
+body {
+    background-color: #00bfff;
+}
+h1 {
+    color: #ffffff;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.page-wrapper {
+    /* max-width: 80%; */
+    width: 80%;
+    margin: 0 auto; /* Zarovnání na střed */
+    background-color: #8fb8c9;
+    padding: 20px; /* Okraje okolo hrany textu */
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    padding: 0;
+    
+}
+nav a {
+    background-color:rgb(0, 229, 255);
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+nav a:hover{ /* Zmena barvy po namíření myší na tlačítko*/
+    background-color: black;
+}
+.grid-container {
+    display: grid;
+    /*grid-template-columns: auto auto;*/
+    /* grid-template-columns: 4fr 3fr; */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px
+}
+.card {
+    background-color: rgb(107, 176, 255);
+    padding: 5px;
+    border-radius: 10px;
+}
+.card:hover {
+    background-color: #177ddd;
+}
+
+.grid-container-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+.grid-container-gallery img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
