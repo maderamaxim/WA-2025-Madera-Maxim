@@ -31,4 +31,34 @@ class Magazine {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getById($id) {
+        $sql = "SELECT * FROM magazines WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update($id, $name, $year, $issn) {
+        $id = (int)$id;
+        $sql = "UPDATE magazines 
+                SET name = :name,
+                    year = :year,
+                    issn = :issn,
+                WHERE id = :id";
+    
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([
+            ':id' => $id,
+            ':name' => $name,
+            ':year' => $year,
+            ':issn' => $issn,
+        ]);
+    }
+
+    public function delete($id) {
+        $sql = "DELETE FROM magazines WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([':id' => $id]);
+    }
 }
