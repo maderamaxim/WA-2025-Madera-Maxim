@@ -18,6 +18,7 @@ if (isset($_GET['edit'])) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -34,29 +35,27 @@ if (isset($_GET['edit'])) {
 
     <div class="container mt-5">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Knihovna</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Přepnout navigaci">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../views/books/book_create.php">Přidat knihu</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../controllers/book_list.php">Výpis knih</a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Knihovna</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Přepnout navigaci">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../views/books/book_create.php">Přidat knihu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Výpis knih</a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
         </nav>
-        
-
 
         <?php if ($editMode): ?>
-        <div class="row justify-content-center mt-5">
+            <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header bg-primary text-white text-center">
@@ -117,13 +116,12 @@ if (isset($_GET['edit'])) {
                             <button type="submit" class="btn btn-success w-100">Uložit změny</button>
                         </form>
                     </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
 
-    <h2>Výpis knih</h2>
-
+        <h2>Výpis knih</h2>
         <?php if (!empty($books)): ?>
             <table class="table table-bordered table-hover">
                 <thead class="table-primary">
@@ -149,7 +147,7 @@ if (isset($_GET['edit'])) {
                         <td><?= number_format($book['price'], 2, ',', ' ') ?> Kč</td>
                         <td><?= htmlspecialchars($book['isbn']) ?></td>
                         <td>
-                            <a href="?edit=<?= $book['id'] ?>" class="btn btn-sm btn-success">Upravit</a>
+                            <a href="?edit=<?= $book['id'] ?>" class="btn btn-sm btn-primary">Upravit</a>
                             <a href="../../controllers/book_delete.php?id=<?= $book['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat tuto knihu?');">Smazat</a>
                         </td>
                     </tr>

@@ -48,7 +48,7 @@ class BookController {
         }
     }
 
-    public function listBooks() {
+    public function listBooks () {
         $books = $this->bookModel->getAll();
         include '../views/books/book_list.php';
     }

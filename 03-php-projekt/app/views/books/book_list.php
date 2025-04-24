@@ -1,9 +1,11 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Výpis knihu</title>
+    <title>Přidat knihu</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -23,11 +25,28 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../views/books/book_create.php">Přidat knihu</a>
+                            <a class="nav-link" href="../views/books/book_create.php">Přidat knihu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../controllers/book_list.php">Výpis knih</a>
+                            <a class="nav-link" href="#">Výpis knih</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <?php if (isset($_SESSION['username'])): ?>
+                            <li class="nav-item">
+                                <span class="nav-link text-white">Přihlášen jako: <strong><?= htmlspecialchars($_SESSION['username']) ?></strong></span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../controllers/logout.php">Odhlásit se</a>
+                            </li>
+                        <?php else: ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../views/auth/login.php">Přihlášení</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../views/auth/register.php">Registrace</a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
