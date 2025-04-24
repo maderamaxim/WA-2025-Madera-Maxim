@@ -33,7 +33,7 @@ class MagazineController {
 
     public function listMagazines() {
         $magazines = $this->magazineModel->getAll();
-        include '../views/books/magazine_list.php';
+        include '../views/magazine_list.php';
     }
 }
 

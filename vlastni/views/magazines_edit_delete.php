@@ -1,6 +1,6 @@
 <?php
-require_once '../../models/Database.php';
-require_once '../../models/Magazine.php';
+require_once '../models/Database.php';
+require_once '../models/Magazine.php';
 
 $db = (new Database())->getConnection();
 $magazineModel = new Magazine($db);
@@ -43,10 +43,10 @@ if (isset($_GET['edit'])) {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="../../views/books/magazine_create.php">Přidat periodikum</a>
+                                <a class="nav-link" href="../views/magazine_create.php">Přidat periodikum</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../../controllers/magazine_list.php">Výpis periodik</a>
+                                <a class="nav-link" href="../controllers/magazine_list.php">Výpis periodik</a>
                             </li>
                         </ul>
                     </div>
@@ -115,7 +115,7 @@ if (isset($_GET['edit'])) {
                         <td><?= htmlspecialchars($magazine['issn']) ?></td>
                         <td>
                             <a href="?edit=<?= $magazine['id'] ?>" class="btn btn-sm btn-success">Upravit</a>
-                            <a href="../../controllers/magazine_delete.php?id=<?= $magazine['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat tuto knihu?');">Smazat</a>
+                            <a href="../controllers/magazine_delete.php?id=<?= $magazine['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat tuto knihu?');">Smazat</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

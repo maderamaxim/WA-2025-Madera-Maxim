@@ -13,7 +13,15 @@ class BookController {
     }
 
     public function createBook() {
+        session_start();
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (!isset($_SESSION['user_id'])){
+                echo "Chyba: Uživatel není přihlášen";
+                exit();
+            }
+
+            $user_id = $_SESSION['user_id'];
             $title = htmlspecialchars($_POST['title']);
             $author = htmlspecialchars($_POST['author']);
             $category = htmlspecialchars($_POST['category']);
@@ -39,7 +47,7 @@ class BookController {
             }
 
             // Uložení knihy do DB - dočasné řešení, než budeme mít výpis knih
-            if ($this->bookModel->create($title, $author, $category, $subcategory, $year, $price, $isbn, $description, $link, $imagePaths)) {
+            if ($this->bookModel->create($title, $author, $category, $subcategory, $year, $price, $isbn, $description, $link, $imagePaths, $user_id)) {
                 header("Location: ../controllers/book_list.php");
                 exit();
             } else {

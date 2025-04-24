@@ -9,7 +9,7 @@
         $magazineModel = new Magazine($db);
 
         if ($magazineModel->delete($id)) {
-            header("Location: ../views/books/magazines_edit_delete.php");
+            header("Location: ../views/magazines_edit_delete.php");
             exit();
         } else {
             echo "Chyba při mazání knihy.";

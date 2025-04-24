@@ -23,10 +23,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../views/books/magazine_create.php">Přidat periodikum</a>
+                            <a class="nav-link" href="../views/magazine_create.php">Přidat periodikum</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../controllers/magazine_list.php">Výpis periodik</a>
+                            <a class="nav-link" href="../controllers/magazine_list.php">Výpis periodik</a>
                         </li>
                     </ul>
                 </div>
