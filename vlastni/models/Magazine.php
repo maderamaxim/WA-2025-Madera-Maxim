@@ -39,12 +39,13 @@ class Magazine {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function update($id, $name, $year, $issn) {
+    public function update($id, $name, $year, $issn, $description) {
         $id = (int)$id;
         $sql = "UPDATE magazines 
                 SET name = :name,
                     year = :year,
                     issn = :issn,
+                    description = :description
                 WHERE id = :id";
     
         $stmt = $this->db->prepare($sql);
@@ -53,6 +54,7 @@ class Magazine {
             ':name' => $name,
             ':year' => $year,
             ':issn' => $issn,
+            ':description' => $description
         ]);
     }
 

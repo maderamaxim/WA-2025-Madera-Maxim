@@ -20,11 +20,11 @@
                         <h2>Přidat nové periodikum</h2>
                     </div>
                     <div class="card-body">
-                        <form action="../../controllers/MagazineController.php" method="post" enctype="multipart/form-data">
+                        <form action="../controllers/magazine_create.php" method="post">
                             
                             <div class="mb-3">
-                                <label for="title" class="form-label">Název periodika: <span class="text-danger">*</span></label>
-                                <input type="text" id="title" name="name" class="form-control" required>
+                                <label for="name" class="form-label">Název periodika: <span class="text-danger">*</span></label>
+                                <input type="text" id="name" name="name" class="form-control" required>
                             </div>
 
                             <div class="mb-3">

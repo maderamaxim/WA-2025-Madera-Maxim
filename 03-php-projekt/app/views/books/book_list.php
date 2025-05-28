@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="cs">
@@ -28,8 +29,10 @@
                             <a class="nav-link" href="../views/books/book_create.php">Přidat knihu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Výpis knih</a>
+                            <a class="nav-link" href="../views/books/books_edit_delete.php">Editace knih</a>
                         </li>
+
+
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         <?php if (isset($_SESSION['username'])): ?>

@@ -46,6 +46,7 @@
                         <th>Název</th>
                         <th>Rok vydání</th>
                         <th>ISSN</th>
+                        <th>Akce</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,10 @@
                         <td><?= htmlspecialchars($magazine['name']) ?></td>
                         <td><?= htmlspecialchars($magazine['year']) ?></td>
                         <td><?= htmlspecialchars($magazine['issn']) ?></td>
+                        <td>
+                            <a href="../views/magazines_edit_delete.php?edit=<?= $magazine['id'] ?>" class="btn btn-sm btn-success">Upravit</a>
+                            <a href="../controllers/magazine_delete.php?id=<?= $magazine['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat toto periodikum?');">Smazat</a>
+                        </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

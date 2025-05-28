@@ -52,8 +52,6 @@ if (isset($_GET['edit'])) {
                     </div>
                 </div>
         </nav>
-        
-
 
         <?php if ($editMode): ?>
         <div class="row justify-content-center mt-5">
@@ -63,7 +61,7 @@ if (isset($_GET['edit'])) {
                     <h2>Upravit periodikum: <?= htmlspecialchars($magazineToEdit['name']) ?></h2>
                     </div>
                     <div class="card-body">
-                        <form action="../../controllers/magazine_update.php" method="post">
+                        <form action="../controllers/magazine_update.php" method="post">
                             <input type="hidden" name="id" value="<?= $magazineToEdit['id'] ?>">
                             <div class="mb-3">
                                 <label class="form-label">ID periodika:</label>
@@ -71,10 +69,9 @@ if (isset($_GET['edit'])) {
                             </div>
 
                             <div class="mb-3">
-                                <label for="title" class="form-label">Název periodika:</label>
+                                <label for="name" class="form-label">Název periodika:</label>
                                 <input type="text" id="name" name="name" class="form-control" required value="<?= htmlspecialchars($magazineToEdit['name']) ?>">
                             </div>
-
 
                             <div class="mb-3">
                                 <label for="year" class="form-label">Rok vydání:</label>
@@ -86,6 +83,11 @@ if (isset($_GET['edit'])) {
                                 <input type="text" id="issn" name="issn" class="form-control" required value="<?= htmlspecialchars($magazineToEdit['issn']) ?>">
                             </div>
 
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Popis:</label>
+                                <textarea id="description" name="description" class="form-control" rows="3"><?= htmlspecialchars($magazineToEdit['description'] ?? '') ?></textarea>
+                            </div>
+
                             <button type="submit" class="btn btn-success w-100">Uložit změny</button>
                         </form>
                     </div>
@@ -94,7 +96,7 @@ if (isset($_GET['edit'])) {
         </div>
     <?php endif; ?>
 
-    <h2>Výpis knih</h2>
+    <h2>Výpis periodik</h2>
 
         <?php if (!empty($magazines)): ?>
             <table class="table table-bordered table-hover">
@@ -104,6 +106,7 @@ if (isset($_GET['edit'])) {
                         <th>Název</th>
                         <th>Rok</th>
                         <th>ISSN</th>
+                        <th>Akce</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,7 +118,7 @@ if (isset($_GET['edit'])) {
                         <td><?= htmlspecialchars($magazine['issn']) ?></td>
                         <td>
                             <a href="?edit=<?= $magazine['id'] ?>" class="btn btn-sm btn-success">Upravit</a>
-                            <a href="../controllers/magazine_delete.php?id=<?= $magazine['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat tuto knihu?');">Smazat</a>
+                            <a href="../controllers/magazine_delete.php?id=<?= $magazine['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Opravdu chcete smazat toto periodikum?');">Smazat</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -123,7 +126,7 @@ if (isset($_GET['edit'])) {
             </table>
         
             <?php else: ?>
-            <div class="alert alert-info">Žádná kniha nebyla nalezena.</div>
+            <div class="alert alert-info">Žádné periodikum nebylo nalezeno.</div>
         <?php endif; ?>
 
     </div>
